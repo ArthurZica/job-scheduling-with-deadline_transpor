@@ -89,18 +89,20 @@ export default function Home() {
           Cadastrar nova entrega
         </Typography>
         <TextField
+          sx={{ marginBottom: "2vh" }}
           id="outlined-basic"
           label="Localização"
-          className="pb-2 w-[80%]"
+          className=" w-[80%]"
           variant="outlined"
           value={localizacao}
           onChange={(e) => setLocalizacao(e.target.value)}
         />
         <TextField
+          sx={{ marginBottom: "2vh" }}
           id="outlined-basic"
           label="Lucro Estimado"
           type="number"
-          className="pb-2 w-[80%]"
+          className=" w-[80%]"
           variant="outlined"
           InputProps={{
             startAdornment: (
@@ -111,10 +113,11 @@ export default function Home() {
           onChange={(e) => setLucro(e.target.value)}
         />
         <TextField
+          sx={{ marginBottom: "2vh" }}
           id="outlined-basic"
           label="Prazo"
           type="number"
-          className="pb-2 w-[80%]"
+          className="w-[80%]"
           variant="outlined"
           InputProps={{
             endAdornment: <InputAdornment position="end">Dias</InputAdornment>,
