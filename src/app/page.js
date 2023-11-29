@@ -46,29 +46,29 @@ export default function Home() {
   }
 
   function jobSequencing() {
-    // Ordena entregas do maior lucro para o menor
     let e = entregas;
+    // Ordena entregas do maior lucro para o menor
     e.sort((a, b) => b.lucro - a.lucro);
     let t = Math.max(...e.map((entrega) => entrega.prazo));
     let lucroTotal = 0;
     // Array que armazena slots livres
     let result = new Array(t);
+    // O trecho abaixo foi baseado no artigo: https://reintech.io/blog/solving-job-sequencing-problem-in-javascript
     for (let i = 0; i < t; i++) result[i] = false;
-
     // percorre todas entregas
     for (let i = 0; i < e.length; i++) {
       //Encontra uma posição para essa entrega no espaço mais longe possível
       for (let j = Math.min(t - 1, e[i].prazo - 1); j >= 0; j--) {
         // Caso encontre espaço livre
         if (result[j] == false) {
-          result[j] = e[i];
-          lucroTotal += Number(e[i].lucro);
           // Insere na posição
+          result[j] = e[i]; //alterado por mim
+          lucroTotal += Number(e[i].lucro); //alterado por mim
           console.log(e[i].localizacao);
           break;
         }
       }
-    }
+    } // Aqui acaba o trecho baseado no artigo
     console.log(result);
     setOrdenadas(result);
     setLucroTotal(lucroTotal);
